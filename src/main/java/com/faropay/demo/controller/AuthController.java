@@ -16,7 +16,7 @@ import com.faropay.demo.model.LoginResponse;
 import com.faropay.demo.security.CustomUserDetailsService;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthController {
 
     @Autowired

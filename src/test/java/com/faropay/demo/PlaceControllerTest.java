@@ -29,12 +29,12 @@ public class PlaceControllerTest {
     @Test
     public void testLogin() throws Exception {
         MvcResult result = mockMvc
-                .perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON)
+                .perform(post("/auth/login").contentType(MediaType.APPLICATION_JSON)
                         .content("{\"username\": \"admin\", \"password\":\"admin$123\"}"))
                 .andExpect(status().isOk()).andReturn();
         String resp = result.getResponse().getContentAsString();
         LoginResponse loginResponse = new Gson().fromJson(resp, LoginResponse.class);
-        mockMvc.perform(get("/api/places/").header("Authorization", loginResponse.getToken()))
+        mockMvc.perform(get("/places/list_places").header("Authorization", loginResponse.getToken()))
                 .andExpect(status().isOk()).andReturn();
     }
 }

@@ -19,7 +19,7 @@ public class AuthControllerTest {
 
     @Test
     public void testLogin() throws Exception {
-        this.mockMvc.perform(post("/api/auth/login")
+        this.mockMvc.perform(post("/auth/login")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"username\": \"admin\", \"password\":\"admin$123\"}")
                 ).andExpect(status().isOk());

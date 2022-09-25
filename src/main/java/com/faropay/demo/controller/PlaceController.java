@@ -14,12 +14,12 @@ import com.faropay.demo.model.CommonResponse;
 import com.faropay.demo.repository.PlaceRepository;
 
 @RestController
-@RequestMapping(path = "/api/places")
+@RequestMapping(path = "/places")
 public class PlaceController {
     @Autowired
     private PlaceRepository placeRepository;
 
-    @GetMapping(path = "/", produces = "application/json")
+    @GetMapping(path = "/list_places", produces = "application/json")
     public ResponseEntity<?> getPlaces() {
         List<Place> list = placeRepository.findAll();
         CommonResponse<?> resp = new CommonResponse<List<Place>>(HttpStatus.OK, list);
